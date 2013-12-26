@@ -8,7 +8,7 @@
         "node": ">=0.10.0"
     },
     "dependencies": {
-
+        "restify": "~2.6.1"
     },
     "devDependencies": {
         "mocha": "~1.10.0",
