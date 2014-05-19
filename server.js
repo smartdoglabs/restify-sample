@@ -2,9 +2,27 @@
  * Created by jrubio on 12/15/13.
  */
 var restify = require('restify');
+var couchbase = require('couchbase');
 
 function respond(req, res, next) {
-    res.send('hello ' + req.params.name);
+
+    var db = new couchbase.Connection({host: 'localhost:8091', bucket: 'default'}, function(err) {
+        if (err) throw err;
+
+        db.set('testdoc', {name:req.params.name}, function(err, result) {
+            if (err) throw err;
+
+            db.get('testdoc', function(err, result) {
+                if (err) throw err;
+
+                res.send(result.value);
+                // {name: Frank}
+            });
+        });
+    });
+
+
+
 }
 
 var server = restify.createServer();

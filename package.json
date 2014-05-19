@@ -1,14 +1,15 @@
 {
     "name": "cookiemonster",
     "version": "0.0.1",
-    "description": "Repurchaser Services ",
+    "description": "Teeth.io REST API and Services ",
     "author": "Jose Rubio",
     "main": "server.js",
     "engines": {
         "node": ">=0.10.0"
     },
     "dependencies": {
-        "restify": "~2.6.1"
+        "restify": "~2.6.1",
+        "couchbase": "~1.2.4"
     },
     "devDependencies": {
         "mocha": "~1.10.0",
