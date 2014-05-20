@@ -26,6 +26,11 @@ function respond(req, res, next) {
 }
 
 var server = restify.createServer();
+
+server
+  .use(restify.fullResponse())
+  .use(restify.bodyParser());
+
 server.get('/hello/:name', respond);
 server.head('/hello/:name', respond);
 
